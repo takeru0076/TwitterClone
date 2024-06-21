@@ -9,4 +9,10 @@
     <%= post.user_id %>
   </p>
 
+  <% if post.image.present? %>
+    <p>
+      <strong>Image:</strong><br>
+      <%= image_tag(post.image.url, size: "300x300") %>
+    </p>
+  <% end %>
 </div>
