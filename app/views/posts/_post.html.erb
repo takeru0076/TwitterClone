@@ -15,4 +15,14 @@
       <%= image_tag(post.image.url, size: "300x300") %>
     </p>
   <% end %>
+
+  <% if post.favorited_by?(current_user) %>
+    <p>
+      <%= button_to 'いいね外す', post_favorites_path(post), method: :delete, remote: true %> <%= post.favorites.count %>
+    </p>
+  <% else %>
+    <p>
+      <%= button_to 'いいねする', post_favorites_path(post), method: :post, remote: true %> <%= post.favorites.count %>
+    </p>
+  <% end %>
 </div>
